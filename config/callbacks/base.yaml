@@ -1,0 +1,3 @@
+# callbacks/base.yaml
+
+early_stopping_tolerance: 10

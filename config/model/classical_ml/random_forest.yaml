@@ -1,0 +1,5 @@
+# model/classical_ml/random_forest.yaml:
+
+n_estimators: 20
+
+__name__: ml.random_forest

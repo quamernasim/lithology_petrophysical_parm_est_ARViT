@@ -1,0 +1,19 @@
+# model/deep_learning/ann.yaml:
+
+hidden_layers: [32, 16, 8, 6]
+use_batch_norm: False
+activation: relu
+loss_weights: [1,1,1]
+
+autoregressive: False
+
+use_lora: False
+lora:
+  r: 16
+  lora_alpha: 16
+  target_modules: ['vit_encoder.transformer.layers.0.0.to_qkv']
+  lora_dropout: 0.1
+  bias: "none"
+  modules_to_save: ["task_head"]
+
+__name__: dl.ann

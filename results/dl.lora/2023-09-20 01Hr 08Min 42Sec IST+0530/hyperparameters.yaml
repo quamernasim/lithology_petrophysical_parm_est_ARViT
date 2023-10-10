@@ -1,0 +1,82 @@
+data:
+  processed_data_path: data/processed
+  x_file_name: lora_X.h5
+  y_file_name: lora_Y.h5
+  drop_columns:
+  - W_Tar
+  - lat
+  - lng
+  - DEPT
+  - RW
+  well_name_column: UWI
+  scaled_columns:
+  - GR
+  - NPHI
+  - DPHI
+  - ILD
+  - VSH
+  lithology_classes:
+    Sand: 0
+    ShalySand: 1
+    SandyShale: 2
+    Shale: 3
+    Coal: 4
+    CementedSand: 5
+  class_weights:
+  - 1
+  - 1
+  - 5
+  - 1
+  - 1
+  - 20
+  split_size: 0.2
+  patch_based: true
+  patch:
+    patch_size: 150
+    stride: 150
+  num_features: 5
+model:
+  mlp_dim: 128
+  depth: 1
+  heads: 5
+  dim: 150
+  channels: 1
+  dim_head: 256
+  activation: relu
+  loss_weights:
+  - 1
+  - 10
+  - 20
+  return_attention_map: false
+  autoregressive: true
+  auto_regressor_hidden_layer_sizes:
+  - 150
+  use_lora: false
+  lora:
+    r: 16
+    lora_alpha: 16
+    target_modules:
+    - vit_encoder.transformer.layers.0.0.to_qkv
+    lora_dropout: 0.1
+    bias: none
+    modules_to_save:
+    - task_head
+  __name__: dl.vit
+trainer:
+  epochs: 200
+  lr: 0.001
+  batch_size: 64
+  optim: adam
+  save_dir: results
+  checkpoint_name: checkpoint.pt
+  scaler_path: scaler
+  hyperparameters_filename: hyperparameters.yaml
+  policy_exp_path: /home/nasim/phd/petro_AViT/results/dl.vit/2023-09-16 17Hr 37Min
+    07Sec IST+0530
+  experiment_path: results/dl.vit/2023-09-20 01Hr 08Min 42Sec IST+0530
+  device: cuda
+callbacks:
+  early_stopping_tolerance: 10
+random_state: 42
+root: .
+comment: used for LoRA comparison study-training from already trained model

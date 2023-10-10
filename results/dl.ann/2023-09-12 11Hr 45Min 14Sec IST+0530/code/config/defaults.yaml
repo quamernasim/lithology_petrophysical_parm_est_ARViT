@@ -1,0 +1,14 @@
+# defaults.yaml
+
+defaults:
+  - data: base.yaml
+  - model: deep_learning/ann
+  - trainer: base
+  - callbacks: base
+  - _self_
+
+random_state: 42
+
+root: .
+
+comment: ???

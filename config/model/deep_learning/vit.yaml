@@ -1,0 +1,25 @@
+# model/deep_learning/vit.yaml:
+
+mlp_dim: 256
+depth: 1
+heads: 4
+dim: 32
+channels: 1
+dim_head: 64
+activation: relu
+loss_weights: [1,1,1]
+return_attention_map: False
+
+autoregressive: False
+auto_regressor_hidden_layer_sizes: [16, 32]
+
+use_lora: False
+lora:
+  r: 16
+  lora_alpha: 16
+  target_modules: ['vit_encoder.transformer.layers.0.0.to_qkv']
+  lora_dropout: 0.1
+  bias: "none"
+  modules_to_save: ["task_head"]
+
+__name__: dl.vit

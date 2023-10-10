@@ -1,0 +1,66 @@
+data:
+  processed_data_path: data/processed
+  x_file_name: X.h5
+  y_file_name: Y.h5
+  drop_columns:
+  - ILD
+  well_name_column: UWI
+  scaled_columns:
+  - lat
+  - lng
+  - DEPT
+  - GR
+  - NPHI
+  - DPHI
+  lithology_classes:
+    Undefined: 0
+    Sand: 1
+    ShalySand: 2
+    SandyShale: 3
+    Shale: 4
+    Coal: 5
+    CementedSand: 6
+  split_size: 0.2
+  patch_based: true
+  patch:
+    patch_size: 150
+    stride: 75
+  num_features: 6
+model:
+  mlp_dim: 256
+  depth: 1
+  heads: 4
+  dim: 150
+  channels: 1
+  dim_head: 64
+  activation: relu
+  __name__: dl.vit
+  merge_type: add
+  predict_encoder_hidden_layer_sizes:
+  - 8
+  add_merge_layer: true
+  two_level_fusion: false
+trainer:
+  epochs: 200
+  lr: 0.001
+  batch_size: 64
+  optim: adam
+  save_dir: results
+  checkpoint_name: checkpoint.pt
+  hyperparameters_filename: hyperparameters.yaml
+  model_scope: policy
+  num_possible_rewards: 3
+  policy_exp_path: results/dl.ann/2023-08-01 11Hr 47Min 39Sec IST+0530
+  policy_hyperparameters_filename: hyperparameters.yaml
+  build_backbone_from_trained_policy: true
+  use_probability_as_response: false
+  train_on_fake_probabilities: false
+  total_fake_probabilities: 4
+  experiment_path: results/policy/dl.vit/2023-08-08 12Hr 53Min 41Sec IST+0530
+  device: cpu
+callbacks:
+  early_stopping_tolerance: 10
+random_state: 42
+root: ..
+comment: activation changed from gelu to relu + .to_latent changed from Identity to
+  1 LayerNorm+1 Linear

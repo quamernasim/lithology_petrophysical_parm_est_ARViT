@@ -1,0 +1,11 @@
+# trainer/base.yaml
+
+epochs: 200
+lr: 0.001
+batch_size: 64
+optim: adamw
+save_dir: results
+checkpoint_name: checkpoint.pt
+scaler_path: scaler
+hyperparameters_filename: hyperparameters.yaml
+policy_exp_path: '/home/nasim/phd/petro_AViT/results/dl.vit/2023-09-11 11Hr 50Min 06Sec IST+0530'

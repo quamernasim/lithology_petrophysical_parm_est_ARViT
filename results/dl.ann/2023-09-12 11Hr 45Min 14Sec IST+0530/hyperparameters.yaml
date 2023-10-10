@@ -1,0 +1,77 @@
+data:
+  processed_data_path: data/processed
+  x_file_name: X.h5
+  y_file_name: Y.h5
+  drop_columns:
+  - W_Tar
+  - lat
+  - lng
+  - DEPT
+  - RW
+  well_name_column: UWI
+  scaled_columns:
+  - GR
+  - NPHI
+  - DPHI
+  - ILD
+  - VSH
+  lithology_classes:
+    Sand: 0
+    ShalySand: 1
+    SandyShale: 2
+    Shale: 3
+    Coal: 4
+    CementedSand: 5
+  class_weights:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  split_size: 0.2
+  patch_based: true
+  patch:
+    patch_size: 150
+    stride: 150
+  num_features: 5
+model:
+  hidden_layers:
+  - 10
+  - 10
+  - 10
+  use_batch_norm: true
+  activation: relu
+  loss_weights:
+  - 1
+  - 1
+  - 1
+  autoregressive: false
+  use_lora: false
+  lora:
+    r: 16
+    lora_alpha: 16
+    target_modules:
+    - vit_encoder.transformer.layers.0.0.to_qkv
+    lora_dropout: 0.1
+    bias: none
+    modules_to_save:
+    - task_head
+  __name__: dl.ann
+trainer:
+  epochs: 100
+  lr: 0.001
+  batch_size: 256
+  optim: adam
+  save_dir: results
+  checkpoint_name: checkpoint.pt
+  scaler_path: scaler
+  hyperparameters_filename: hyperparameters.yaml
+  policy_exp_path: false
+  experiment_path: results/dl.ann/2023-09-12 11Hr 45Min 14Sec IST+0530
+  device: cuda
+callbacks:
+  early_stopping_tolerance: 10
+random_state: 42
+root: .
+comment: undefined class removed and filled with prediction of random formest

@@ -1,0 +1,5 @@
+# model/classical_ml/ann.yaml:
+
+hidden_layers: [32, 16, 8, 6]
+
+__name__: ml.ann

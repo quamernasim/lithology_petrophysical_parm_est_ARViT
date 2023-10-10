@@ -1,0 +1,26 @@
+# data/base.yaml:
+
+processed_data_path: data/processed
+x_file_name: X.h5
+y_file_name: Y.h5
+drop_columns: ['ILD']
+well_name_column: 'UWI'
+scaled_columns: ['lat', 'lng', 'DEPT', 'GR', 'NPHI', 'DPHI']
+
+lithology_classes:
+  Sand: 0
+  ShalySand: 1
+  SandyShale: 2
+  Shale: 3
+  Coal: 4
+  CementedSand: 5
+
+class_weights: [1, 1, 1, 1, 1, 1]
+
+split_size: 0.2
+
+patch_based: True
+patch:
+  patch_size: 150
+  stride: 75
+
