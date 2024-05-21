@@ -48,7 +48,3 @@ The inference code is present in the notebooks folder. The notebooks are written
 5. ```notebooks/dl/policy_inference_tl.ipynb``` - This notebook contains the code for inference using ARViT + Transfer Learning on LoRA dataset.
 6. ```notebooks/dl/policy_inference_scratch.ipynb``` - This notebook contains the code for inference using ARViT from scratch on LoRA dataset.
 7. ```notebooks/dl/policy_inference_lora.ipynb``` - This notebook contains the code for inference using ARViT + LoRA.
-
-
-
-
