@@ -3,7 +3,7 @@ This repo contains the code for the paper "Efficient self-attention based joint 
 
 # 🚧 Hold Back, We're Doing Some Cosmetic Changes! 🚧
 
-We're making some improvements to the codebase to make it easier for readers to go through. We will publish the code by the end of **October 2024**. Please check back soon!
+We're making some improvements to the codebase to make it easier for readers to go through. We will publish the code by the end of **November 2024**. Please check back soon!
 
 Meanwhile, if you'd like to learn more about the proposed work, you can check out the [published paper](https://www.sciencedirect.com/science/article/abs/pii/S0926985124002489)
 
